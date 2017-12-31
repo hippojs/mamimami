@@ -13,7 +13,10 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test",
+    "prettier": "prettier --write '{package.json,{app,tests}/**/*.{js,json}}'",
+    "precommit:lint": "./scripts/eslint-git-diff.sh",
+    "precommit:prettier": "./scripts/prettier-precommit.sh"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -36,9 +39,15 @@
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.16.0",
     "ember-welcome-page": "^3.0.0",
-    "loader.js": "^4.2.3"
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "loader.js": "^4.2.3",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.9.2"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
-  }
+  },
+  "dependencies": {},
+  "pre-commit": ["precommit:prettier", "precommit:lint"]
 }
