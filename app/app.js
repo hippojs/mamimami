@@ -7,6 +7,14 @@ const App = Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
   Resolver,
+
+  engines: {
+    feed: {
+      dependencies: {
+        services: ['store'],
+      },
+    },
+  },
 });
 
 loadInitializers(App, config.modulePrefix);
