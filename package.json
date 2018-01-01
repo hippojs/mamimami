@@ -16,8 +16,9 @@
     "test": "ember test",
     "prettier":
       "prettier --write '{package.json,{app,tests,lib}/**/*.{js,json}}'",
-    "precommit:lint": "./scripts/eslint-git-diff.sh",
-    "precommit:prettier": "./scripts/prettier-precommit.sh"
+    "precommit:eslint": "./scripts/precommit-eslint.sh",
+    "precommit:prettier": "./scripts/precommit-prettier.sh",
+    "precommit:templatelint": "./scripts/precommit-templatelint.js"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -54,7 +55,11 @@
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "dependencies": {},
-  "pre-commit": ["precommit:prettier", "precommit:lint"],
+  "pre-commit": [
+    "precommit:prettier",
+    "precommit:eslint",
+    "precommit:templatelint"
+  ],
   "ember-addon": {
     "paths": ["lib/feed"]
   }
